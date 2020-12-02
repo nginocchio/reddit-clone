@@ -8,12 +8,15 @@
     "dev": "nodemon --exec babel-node ./src/bin/www",
     "lint": "./node_modules/.bin/eslint ./src",
     "pretty": "npx prettier --write \"**/*.{js,json}\"",
-    "postpretty": "eslint --fix --ext .js, ."
+    "postpretty": "eslint --fix --ext .js, .",
+    "test": "nyc --reporter=html --reporter=text --reporter=lcov mocha -r @babel/register"
   },
   "dependencies": {
     "@babel/runtime": "^7.12.5",
+    "chai": "^4.2.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
+    "dotenv": "^8.2.0",
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1"
@@ -25,12 +28,17 @@
     "@babel/preset-env": "^7.12.7",
     "@babel/register": "^7.12.1",
     "babel-cli": "^6.26.0",
+    "coveralls": "^3.1.0",
     "eslint": "^7.2.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.0.0",
-    "prettier": "2.2.1"
+    "mocha": "^8.2.1",
+    "nyc": "^15.1.0",
+    "prettier": "2.2.1",
+    "sinon-chai": "^3.5.0",
+    "supertest": "^6.0.1"
   }
 }

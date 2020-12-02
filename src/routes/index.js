@@ -1,8 +1,10 @@
 import express from 'express';
-const router = express.Router();
+import { testEnvironmentVariable } from '../settings';
 
-router.get('/', (req, res) =>
-  res.status(200).json({ message: 'Welcome to Express API template.' })
+const indexRouter = express.Router();
+
+indexRouter.get('/', (req, res) =>
+  res.status(200).json({ message: testEnvironmentVariable })
 );
 
-export default router;
+export default indexRouter;
