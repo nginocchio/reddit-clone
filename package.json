@@ -10,7 +10,8 @@
     "pretty": "npx prettier --write \"**/*.{js,json}\"",
     "postpretty": "eslint --fix --ext .js, .",
     "test": "nyc --reporter=html --reporter=text --reporter=lcov mocha -r @babel/register",
-    "coverage": "nyc report --reporter=text-lcov | coveralls"
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "runQuery": "babel-node ./src/utils/runQuery"
   },
   "dependencies": {
     "@babel/runtime": "^7.12.5",
@@ -20,7 +21,8 @@
     "dotenv": "^8.2.0",
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
-    "morgan": "~1.9.1"
+    "morgan": "~1.9.1",
+    "pg": "^8.5.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
