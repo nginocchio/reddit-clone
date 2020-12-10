@@ -2,7 +2,10 @@ import { pool } from '../models/pool';
 import {
   insertMessages,
   dropMessagesTable,
+  dropUsersTable,
   createMessageTable,
+  createUserTable,
+  insertUsers,
 } from './queries';
 
 export const executeQueryArray = async (arr) =>
@@ -14,6 +17,9 @@ export const executeQueryArray = async (arr) =>
     });
   });
 
-export const dropTables = () => executeQueryArray([dropMessagesTable]);
-export const createTables = () => executeQueryArray([createMessageTable]);
-export const insertIntoTables = () => executeQueryArray([insertMessages]);
+export const dropTables = () =>
+  executeQueryArray([dropMessagesTable, dropUsersTable]);
+export const createTables = () =>
+  executeQueryArray([createMessageTable, createUserTable]);
+export const insertIntoTables = () =>
+  executeQueryArray([insertMessages, insertUsers]);
