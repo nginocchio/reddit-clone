@@ -10,10 +10,24 @@ class Model {
     );
   }
 
-  async select(columns, clause) {
-    let query = `SELECT ${columns} FROM ${this.table}`;
-    if (clause) query += clause;
-    return this.pool.query(query);
+  async executeQuery(queryText, queryValues) {
+    if (queryValues) {
+      return this.pool.query(queryText, queryValues);
+    }
+    return this.pool.query(queryText);
+  }
+
+  async one(id) {
+    try {
+      let result = await this.pool.query(
+        `SELECT * FROM "${this.table}" WHERE id = $1`,
+        [id]
+      );
+      let value = result.rows ? result.rows[0] : null;
+      return value;
+    } catch (err) {
+      throw err;
+    }
   }
 
   async insertWithReturn(columns, values) {
