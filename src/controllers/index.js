@@ -2,3 +2,4 @@
 export * from './home';
 export * from './about';
 export * from './messages';
+export * from './auth';
